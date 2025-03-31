@@ -11,6 +11,3 @@ A full-stack Python web application for managing virtual stock trades, tracking 
 - Portfolio summary and dynamic updates
 - Backend built with Flask and SQLite
 - HTML/CSS templates using Jinja2
-
-## 🗂️ Project Structure
-
