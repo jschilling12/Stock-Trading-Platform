@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stock
+{% endblock %}
+
+{% block main %}
+    <h2>Buy Shares</h2>
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="symbol" placeholder="Stock Symbol" type="text" required>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="shares" placeholder="Number of Shares" type="number" min="1" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+
+    {% if stock %}
+        <h3>{{ stock.name }} ({{ stock.symbol }})</h3>
+        <p>Price per Share: {{ stock.price | usd }}</p>
+        <p>Total Cost: {{ stock.total_cost | usd }}</p>
+    {% elif stock is none %}
+        <p>Invalid symbol. Please try again with a valid stock symbol.</p>
+    {% endif %}
+{% endblock %}
